@@ -1,3 +1,12 @@
+% nonlin_land_Qs_annotate.m
+% Author: Lauren Rafelski, modified by Julia Dohner
+
+% nonlin_land_Qs_annotate.m is the driver code for the land model.  
+% This code fits a model of land uptake to the residual land flux.  
+% The model includes CO2 fertilization or N fertilization, and 
+% temperature-dependent respiration.
+
+
 %% Modifications
 %% 11/27/2007: added NPP weighted land temperature datasets: npp_T.mat
 %% 11/27/2007: added land weighted land T datasets: landwt_T.mat
