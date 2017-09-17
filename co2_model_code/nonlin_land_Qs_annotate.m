@@ -54,7 +54,8 @@ ts = 12; % timesteps per year
 start_year = 1850;
 end_year = 2009+(7/12); 
 
-beta = [0.5;2]; % initial guesses for model fit
+beta = [0.5;2]; % initial guesses for [epsilon (CO2 fertilization) or gamma
+% (N fertilization), and Q1] model fit (see land_fit_Qs_annotate)
 
 [dtdelpCO2a,dpCO2a,year,dt,CO2a] = MLOinterpolate_increment2(ts,start_year,end_year); 
 
