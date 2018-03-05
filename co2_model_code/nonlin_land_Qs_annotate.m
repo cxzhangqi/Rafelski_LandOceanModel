@@ -16,7 +16,7 @@
 for n = 1
 %% define what kind of run you want to do
 
-LU = 1; %1 = high land use scenario; 2 = low land use scenario
+LU = 2; %1 = high land use scenario; 2 = low land use scenario
 
 nitrogen = 0; % 1 = yes, 0 = no; account for nitrogen fertilization?
 
