@@ -11,7 +11,7 @@
 
 % forward run model with temperature dependence in land
 
-%clear all
+clear all
 
 for n = 1
 %% define what kind of run you want to do
@@ -38,6 +38,9 @@ load landwt_T_2011.mat % land temperature anomaly
 %% extratrop_landmo: extratropical land use emissions
 
 [landusemo,ff1,fas,Aoc,extratrop_landmo] = getsourcesink_scale3; 
+
+% scale ocean uptake
+fas(:,2) = fas(:,2)*0.7;
 
  clear year start_year end_year ts
 
