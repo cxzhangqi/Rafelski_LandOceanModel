@@ -16,7 +16,7 @@ clear all
 for n = 1
 %% define what kind of run you want to do
 
-LU = 2; %1 = high land use scenario; 2 = low land use scenario
+LU = 1; %1 = high land use scenario; 2 = low land use scenario
 
 nitrogen = 0; % 1 = yes, 0 = no; account for nitrogen fertilization?
 
@@ -309,6 +309,6 @@ newat(:,2) =  ff1(1189:3104,2)....
 elseif(LU==2)
 newat(:,1) = year(1,1:1867);
 newat(:,2) =  ff1(1189:3055,2)....
-- Aoc*fas(601:2467,2) + extratrop_landmo(1:1867,2) + delCdt(:,2) ;
+- Aoc*fas(601:2467,2) + extratrop_landmo(1:1867,2) + delCdt(1:1867,2) ; %JLD 3/13/18 changed from delCdt(:,2) to delCdt(1:1867,2)
 end
 
