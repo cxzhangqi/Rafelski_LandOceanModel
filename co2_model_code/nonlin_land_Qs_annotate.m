@@ -303,13 +303,35 @@ end
 %% Do "reverse deconvolution" to calculate modeled atmospheric change in
 %% CO2
 if(LU==1)
+% all to 2009 + 7/12
 newat(:,1) = year(1,1:1916);
 newat(:,2) =  ff1(1189:3104,2)....
 - Aoc*fas(601:2516,2) + landusemo(1:1916,2) + delCdt(:,2) ;
 
+% these are all to 2005.5
 elseif(LU==2)
 newat(:,1) = year(1,1:1867);
 newat(:,2) =  ff1(1189:3055,2)....
 - Aoc*fas(601:2467,2) + extratrop_landmo(1:1867,2) + delCdt(1:1867,2) ; %JLD 3/13/18 changed from delCdt(:,2) to delCdt(1:1867,2)
 end
 
+%% below all JLD
+atmcalc(:,1) = year2;
+atmcalc(:,2) = cumsum(newat(:,2)/12);
+atmcalc(:,2) = atmcalc(:,2)+280;
+
+figure
+plot(atmcalc(:,1),atmcalc(:,2));
+xlabel('year')
+ylabel('ppm CO2')
+title('modeled atmospheric co2 from deconvolution')
+legend('modeled atmospheric co2');
+grid
+% 
+% figure
+% plot(newat(:,1),newat(:,2));
+% xlabel('year')
+% ylabel('ppm CO2')
+% title('modeled atmospheric co2 from deconvolution')
+% legend('modeled atmospheric co2');
+% grid
