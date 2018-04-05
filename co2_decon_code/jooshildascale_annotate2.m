@@ -1,6 +1,6 @@
 %% January 10, 2011: extended data to 2010
 
-%clear all
+clear all
 
 ts = 12; % number of data points/year
 start_year = 1800;
