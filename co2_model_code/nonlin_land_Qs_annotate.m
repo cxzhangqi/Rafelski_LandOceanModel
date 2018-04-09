@@ -16,7 +16,7 @@ clear all
 for n = 2
 %% define what kind of run you want to do
 
-LU = 1; %1 = high land use scenario; 2 = low land use scenario
+LU = 2; %1 = high land use scenario; 2 = low land use scenario
 
 nitrogen = 0; % 1 = yes, 0 = no; account for nitrogen fertilization?
 
@@ -40,7 +40,7 @@ load landwt_T_2011.mat % land temperature anomaly
 [landusemo,ff1,fas,Aoc,extratrop_landmo] = getsourcesink_scale3; 
 
 % scale ocean uptake
-fas(:,2) = fas(:,2)*1.3;
+fas(:,2) = fas(:,2)*0.7;
 
  clear year start_year end_year ts
 
