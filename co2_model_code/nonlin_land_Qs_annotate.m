@@ -20,7 +20,7 @@ LU = 1; %1 = high land use scenario; 2 = low land use scenario
 
 nitrogen = 0; % 1 = yes, 0 = no; account for nitrogen fertilization?
 
-filter = 2; % filter the data? 1 = 10 year filter; 2 = unfiltered
+filter = 1; % filter the data? 1 = 10 year filter; 2 = unfiltered
 
 %%
 load land_temp.mat % land temperature records
