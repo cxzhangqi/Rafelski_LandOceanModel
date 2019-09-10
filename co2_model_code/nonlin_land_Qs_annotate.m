@@ -1,4 +1,4 @@
-%% Modifications
+      %% Modifications
 %% 11/27/2007: added NPP weighted land temperature datasets: npp_T.mat
 %% 11/27/2007: added land weighted land T datasets: landwt_T.mat
 %% 12/18/2007: added option to do fit with unfiltered data
@@ -158,17 +158,21 @@ end
 %% find model fit using a nonlinear regression
 if(filter == 1) % fit to 10-year filtered record
 
+    % year 1900 to 2004.58
     [betahat,resid,J] = nlinfit(X,residual10(601:end,2),'land_fit_Qs_annotate',beta); %change 601:end to 1081:1513; change 601 to 1297
 
 elseif(filter == 2) % fit to unfiltered record
-
+    
+    % year 1938 to 1976
+    % J's size covers these years
     [betahat,resid,J] = nlinfit(X,decon(1057:1513,2),'land_fit_Qs_annotate',beta); %change 601:end to 1081:1513. After 1958: 1297; was on 1309:end
 
 end
 
 %% Look at covariances and correlations between model result and calculated land uptake 
 [N,P] = size(X);
-% 
+
+% covers years 1900 to 1998 
 covariance = inv(J(1:1177,:)'*J(1:1177,:))*sum(resid(1:1177,:).^2)/(N-P) 
 
 [isize,jsize] = size(covariance);
@@ -222,6 +226,8 @@ yhat2 = delC10(:,2);
 
 %yhat2 = yhat2 + (0 - yhat2(1));
     
+    % 61 = year 1855
+    % 1806 = year 2004
     e = delC10(61:1806,2) - residual10(61:1806,2); % look at MSE for 1855 to 2000
     
     misfit = e'*e/length(delC10(61:1806,2));  
@@ -243,7 +249,7 @@ yhat2 = delC10(:,2);
 % title('land uptake')
 % legend('Residual uptake','land uptake without T effects','land uptake with T effects')
 
-   
+   % 601 = year 1990
     C = cov(residual10(601:(end-1),2),yhat2(601:(end-1),1));
 %    
    [R,P,RLO,RUP] = corrcoef(yhat2(601:(end-1),1),residual10(601:(end-1),2));
